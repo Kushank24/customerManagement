@@ -3,6 +3,8 @@
  */
 package com.flipkart.client;
 
+import java.util.Scanner;
+
 import com.flipkart.demo.AbstractDemo;
 import com.flipkart.demo.DemoTest;
 import com.flipkart.service.CustomerService;
@@ -22,26 +24,43 @@ public class CustomerApplication {
 		// TODO Auto-generated method stub
 		
 		//create the instance (object) of service class
-//		CustomerService service = new CustomerService();
-//		
-//		service.createCustomer();
-//		service.deleteCustomer(101);
-//		service.deleteCustomer(101);
-//		service.listCustomer();
-//		
-//		DemoTest obj = new DemoTest();
-//		obj.test();
-		
-		//In Method Overriding object of base class is declared
-//		CustomerServiceOperations obj = new PaymentService();
-//		obj.testOverride();
-		
+		Scanner sc= new Scanner(System.in);
 		CustomerService obj = new CustomerServiceOperations();
-		obj.createCustomer();
-		obj.listCustomer();
-		obj.deleteCustomer(101);
-		obj.updateCustomer(102);
-		obj.listCustomer();
+		int choice;
+		do {
+			System.out.println("Welcome to Customer Management System");
+			System.out.println("1. Create Customer");
+			System.out.println("2. Update Customer");
+			System.out.println("3. Delete Customer");
+			System.out.println("4. Show List of customer");
+			System.out.println("5. Exit");
+			System.out.println("Enter Your choice: ");
+			choice = sc.nextInt();
+			int id;
+			switch(choice)
+			{
+				case 1:
+					obj.createCustomer();
+					break;
+				case 2:
+					System.out.println("Enter the id of the customer you want to update: ");
+					id = sc.nextInt();
+					obj.updateCustomer(id);
+					break;
+				case 3:
+					System.out.println("Enter the id of the customer you want to update: ");
+					id = sc.nextInt();
+					obj.deleteCustomer(id);
+					break;
+				case 4:
+					obj.listCustomer();
+					break;
+				case 5:
+				default:
+					break;
+					
+			}
+		}while(choice!=5);
 	}
 
 }
