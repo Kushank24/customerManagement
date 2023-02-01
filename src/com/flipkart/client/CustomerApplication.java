@@ -38,8 +38,9 @@ public class CustomerApplication {
 		
 		CustomerService obj = new CustomerServiceOperations();
 		obj.createCustomer();
+		obj.listCustomer();
 		obj.deleteCustomer(101);
-		obj.updateCustomer(101);
+		obj.updateCustomer(102);
 		obj.listCustomer();
 	}
 
